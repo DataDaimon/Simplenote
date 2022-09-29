@@ -1,0 +1,49 @@
+Transforming DataFrames
+
+# Inspecting a Dataframe
+.head() returns the first few rows (the “head” of the DataFrame).
+.info() shows information on each of the columns, such as the data type and number of missing values.
+.shape returns the number of rows and columns of the DataFrame.
+.describe() calculates a few summary statistics for each column.
+.values: A two-dimensional NumPy array of values.
+.columns: An index of columns: the column names.
+.index: An index for the rows: either row numbers or row names.
+
+# Sorting
+.sort_values("variable")
+.sort_values("variable", ascending=False) Sorting in descending order
+.sort_values(["variable_1", "variable_2"]) Sorting by multiple variables
+.sort_values(["variable_1", "variable_2"], ascending=[True, False]) Sorting by multiple variables
+
+# Subsetting columns
+dataframe["value"]
+dataframe[["value_1",  "value_2"]] Subsetting multiple columns
+dataframe["value"] > 50 Subsetting rows
+dataframe[dataframe["value"] > 50] Subsetting full rows
+dataframe[dataframe["value"] == "criteria"] Subsetting based on text data
+dataframe[dataframe["value_date"] < "2015-01-01"] Subsetting based on dates
+
+# Subsetting based on multiple conditions
+is_value = dataframe["variable"] == "criteria"
+is_value_2 = dataframe["variable" == "critera_2"
+dataframe[is_value & is_value_2] 
+
+# Subsetting using .isin()
+is_value = dataframe["variable"].isin(["criteria", "criteria_2"])
+dataframe["is_value"]
+
+#Adding a new column
+dataframe["variable_new"] = dataframe["variable"] / 100
+
+
+
+
+
+
+
+
+
+
+
+
+
