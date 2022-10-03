@@ -1,0 +1,51 @@
+Summary Statistics
+
+# Summarizing numerical data
+.mean()
+.median()
+.mode()
+.min()
+.max()
+.var()
+.std()
+.sum()
+
+.agg() aggregate
+.cumsum()
+.cummax()
+.cummin()
+.cumprod()
+
+# Dropping duplicate values
+dataframe.drop_duplicates(subset="name")
+dataframe.drop_duplicates(subset=["name", "breed"]) dropping duplicate pairs
+
+# Value Counts
+dataframe["variable"].value_counts()
+.value_counts(sort=True)
+
+# Proportions
+.value_counts(normalize=True)
+
+# Grouped Summary Statistics
+dataframe.groupby("color")["weight_kg"].mean()
+dogs.groupby("color")["weight_kg"].agg([min, max, sum])
+
+# Grouping by multiple variables
+dogs.groupby(["color", "breed"])["weight_kg"].mean()
+
+# Many groups, many summaries
+dogs.groupby(["color", "breed"])[["weight_kg", "height_cm"]].mean()
+
+# Pivot Tables
+dogs.pivot_table(values="weight_kg", index="color")
+dogs.pivot_table(values="weight_kg", index="color", aggfunc=np.median)
+dogs.pivot_table(values="weight_kg", index="color", aggfunc=[np.mean, np.median])
+dogs.pivot_table(values="weight_kg", index="color", columns="breed")
+dogs.pivot_table(values="weight_kg", index="color", columns="breed", fill_value=0)
+dogs.pivot_table(values="weight_kg", index="color", columns="breed", fill_value=0, margins=True)
+
+
+
+
+

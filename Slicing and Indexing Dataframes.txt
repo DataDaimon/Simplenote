@@ -1,0 +1,62 @@
+Slicing and Indexing Dataframes
+
+# Setting a column as the index
+dogs_ind = dogs.set_index("name")
+
+# Removing an index
+dogs_ind.reset_index()
+
+# Dropping an index
+dogs_ind.reset_index(drop=True)
+
+# Subsetting
+dogs_ind.loc[["Bella", "Stella"]]
+
+# Multi-level indexes aka hierarchical indexes
+dogs_ind3 = dogs.set_index(["breed", "color"])
+
+# Subset the outer level with a list
+dogs_ind3.loc[["Labrador", "Chihuahua"]]
+
+# Subset innter levels with a list of tuples
+dogs_ind3.loc[[("Labrador", "Brown"), ("Chihuahua", "Tan")]]
+
+# Sorting by index values
+dogs_ind3.sort_index()
+dogs_ind3.sort_index(level=["color", "breed"], ascending=[True, False])
+
+# Slicing and subsetting with .loc and .iloc
+breeds[2:5] slice from 2 to 5
+breeds[:3] slice from beginning to 3
+breeds[:] slice the whole list
+
+# Sort the index before you slice
+dogs_srt = dogs.set_index(["breed", "color"].sort_index()
+# Slicing the outer index level
+dogs_srt.loc["Chow Chow":"Poodle"]
+# Slicing the inner index levels correctly
+dogs_srt.loc[("Labrador", "Brown"):("Schnauzer", "Grey")]
+
+# Slicing columns
+dogs_srt.loc[:, "name":"height_cm"]
+
+# Slice Twice
+dogs_srt.loc[("Labrador", "Brown"):("Schnauzer", "Grey"), "name":"height_cm"]
+
+# Slice by date
+dogs = dogs.set_index("Date_of_birth").sort_index()
+dogs.loc["2014-08-25":"2016-09-16"]
+
+# Slice by partial dates
+dogs.loc["2014":"2016"]
+
+# Subsetting by row/column number
+dogs.iloc[2:5, 1:4]
+
+# Pivot tables
+dogs_height_by_breed_vs_color = dog_pack.pivot_table("height_cm", index="breed", columns="color")
+dogs_height_by_breed_vs_color.loc["Chow Chow":"Poodle"]
+dogs_height_by_breed_vs_color.mean(axis="index")
+
+# Calculating summary stats across columns
+dogs_height_by_breed_vs_color.mean(axis="columns")
