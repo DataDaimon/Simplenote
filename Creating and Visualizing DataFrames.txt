@@ -1,0 +1,54 @@
+Creating and Visualizing DataFrames
+
+# Histograms
+dog_pack["height_cm"].hist()
+plt.show()
+
+dog_pack["height_cm"].hist(bins=20)
+
+# Bar plots
+avg_weight.plot(kind="bar")
+avg_weight.plot(kind="bar", title="Mean Weight")
+
+# Line plots
+sully.plot(x="date", y="weight_kg", kind="line")
+sully.plot(x="date", y="weight_kg", kind="line", rot=45)
+
+# Scatter plots
+sully.plot(x="height_cm", y="weight_kg", kind="scatter")
+
+# Layering Plots
+dog_pack[dog_pack["sex"]=="F"]["height_cm"].hist(alpha=0.7)
+dog_pack[dog_pack["sex"]=="M"]["height_cm"].hist(alpha=0.7)
+plt.legend(["F", "M"])
+plt.show()
+
+# Missing Values
+
+# Detecting missing values
+dogs.isna()
+
+# Detecting any missing values
+dogs.isna().any()
+
+# Counting missing values
+dogs.isna().sum()
+
+# Plot missing values
+dogs.isna().sum().plot(kind="bar")
+plt.show
+
+# Removing missing values
+dogs.dropna()
+
+# Replacing missing values
+dogs.fillna(0)
+
+
+
+
+
+
+
+
+
