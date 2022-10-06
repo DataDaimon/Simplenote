@@ -44,6 +44,9 @@ dogs.dropna()
 # Replacing missing values
 dogs.fillna(0)
 
+# Creating DataFrame from Dictionary
+new_dogs = pd.DataFrame(list_of_dicts)
+
 
 
 
