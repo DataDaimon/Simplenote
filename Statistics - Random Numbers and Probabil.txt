@@ -1,0 +1,61 @@
+Statistics - Random Numbers and Probability
+
+# Sampling from a DataFrame
+sales_counts.sample()
+
+# Setting a random seed
+np.random.seed(10)
+
+# Sampling twice in Python (without replacement)
+sales_counts.sample(2) # 2 rows
+
+# Sampling with/without replacement in Python
+sales_counts.sample(5, replace= True)
+
+Independent - sampling with replacement
+Dependent - sampling without replacement
+
+# Sampling from discrete distributions
+np.mean(die['number'])
+rolls_10 = die.sample(10, replace = True)
+
+# Visualizing a sample
+rolls_10['number'].hist(bins=np.linspace(1, 7, 7))
+
+# Uniform distribution in Python
+
+# Less than
+from scipy.stats import uniform
+uniform.cdf(7, 0, 12)
+
+# Greater than
+1 - uniform.cdf(7, 0, 12)
+
+# Between 4 and 7 minutes
+uniform.cdf(7, 0, 12) - uniform.cdf(4, 0, 12)
+
+# Generating random numbers according to uniform distribution
+unform.rvs(0, 5, size=10)
+
+# Binomial distribution
+from scipy.stats import binom
+
+# A single flip
+binom.rvs(# of coins, probability of heads/success, size=# of trials)
+binom.rvs(1, 0.5, size=1)
+
+# Many flips many times
+binom.rvs(3, 0.5, size=10) numbers of heads each time
+
+n: total number of trials
+p: probability of success
+
+# Probability of 7 heads?
+binom.pmf(num heads, num trials, prob of heads)
+binom.pmf(7, 10, 0.5)
+
+# Probability of 7 or fewer heads?
+binom.cdf(7, 10, 0.5)
+
+# Probability of 7 heads or more?
+1 - binom.cdf(7, 10, 0.5)

@@ -1,4 +1,4 @@
-Summary Statistics
+Statistics - Summary Statistics
 
 # Summarizing numerical data
 .mean()

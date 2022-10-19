@@ -1,4 +1,4 @@
-Slicing and Indexing Dataframes
+Data Manipulation - Slicing and Indexing Dataframes
 
 # Setting a column as the index
 dogs_ind = dogs.set_index("name")

@@ -1,4 +1,4 @@
-Creating and Visualizing DataFrames
+Data Manipulation - Creating and Visualizing DataFrames
 
 # Histograms
 dog_pack["height_cm"].hist()

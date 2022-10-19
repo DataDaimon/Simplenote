@@ -1,0 +1,73 @@
+Statistics - Central Limit Theorem
+
+# Percent of women shorter than 154 cm?
+from scipy.stats import norm
+norm.cdf(number of interest, mean, std dev)
+norm.cdf(154, 161, 7)
+
+# Taller than 154?
+1 - norm.cdf(154, 161, 7)
+
+# Women between 154-157?
+norm.cdf(157, 161, 7) - norm.cdf(154, 161, 7)
+
+# What height are 90% of women shorter than?
+norm.ppf(0.9, 161, 7)
+
+# What height are 90% of women taller than?
+norm.ppf(1- 0.9, 161, 7)
+
+# Generating random numbers
+# Generate 10 random heights
+norm.rvs(161, 7, size=10)
+
+# Central Limit Theorem
+die = pd.Series([1, 2, 3, 4, 5, 6])
+# Roll 5 times
+samp_5 = die.sample(5, replace=True)
+print(samp_5)
+np.mean(samp_5)
+
+# Roll the dice 5 times 10 times
+sample_means = [ ]
+for i in range(10):
+    samp_5 = die.sample(5, replace=True)
+    sample_means.append(np.mean(samp_5))
+print(sample_means)
+
+# Poisson Distribution
+from scipy.stats import poisson
+poisson.pmf(period, events)
+
+# Probability of a single value
+If the avg # of adoptions per week is 8, what is P(# adoptions in a week = 5)?
+poisson.pmf(5, 8)
+
+# Probability of less than or equal to
+Avg number of adoptions per week is 8, what is P(# adoptions in a week < 5)?
+poisson.cdf(5, 8)
+
+# Probability of greater than
+what is P(# adoptions in a week > 5)?
+1 - poisson.cdf(5, 8)
+
+# Sampling from a Poisson distribution
+poisson.rvs(8, size=10)
+
+# Exponential Distribution
+from scipy.stats import expon
+
+# How long until a new request is created?
+P(wait < 1 min)
+expon.cdf(1, scale=0.5)
+
+P(wait > 3 min) 
+1 - expon.cdf(3, scale=0.5)
+
+P(1 min < wait < 3 min)
+expon.cdf(3, scale=0.5) - expon.cdf(1, scale=0.5)
+
+# (Student's) t-distribution
+
+
+

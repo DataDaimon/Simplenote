@@ -1,4 +1,4 @@
-Transforming DataFrames
+Data Manipulation - Transforming DataFrames
 
 # Inspecting a Dataframe
 .head() returns the first few rows (the “head” of the DataFrame).
