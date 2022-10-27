@@ -1,0 +1,18 @@
+Intermediate SQL - Selecting Data
+
+COUNT()
+SELECT COUNT(birthdate) as count_birthdates
+FROM people;
+
+COUNT() multiple fields
+SELECT COUNT(name) as count_names, COUNT(birthdate) AS count_birthdates
+FROM people;
+
+Using * with COUNT()
+SELECT COUNT(*) AS total_records
+FROM people;
+
+COUNT() with DISTINCT
+SELECT COUNT(DISTINCT birthdate) as count_distinct_birthdates
+FROM people;
+

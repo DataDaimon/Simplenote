@@ -1,0 +1,40 @@
+Introduction to SQL
+
+# Querying
+SELECT name
+FROM patrons;
+
+# Selecting multiple fields
+SELECT card_num, name
+FROM patrons;
+
+# Selecting all fields
+SELECT *
+FROM patrons;
+
+# Aliasing
+SELECT name AS first_name, year_hired
+FROM employees;
+
+# Selecting distinct records
+SELECT DISTINCT year_hired
+FROM employees;
+
+# Distinct with multiple fields
+SELECT dept_id, year_hired
+FROM employees;
+
+# Views
+CREATE VIEW employee_hire_years AS
+SELECT id, name, year_hired
+FROM employees;
+
+# Using Views
+SELECT id, name
+FROM employee_hire_years;
+
+# LIMIT
+SELECT genre
+FROM books
+LIMIT 10;
+
